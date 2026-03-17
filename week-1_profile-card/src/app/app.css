@@ -1,0 +1,57 @@
+
+.profile-card{
+    background: #1976d2;
+}
+
+h1{
+     font-size: 24px;
+     color: white;
+     padding: 12px;
+     margin: 0;
+}
+
+.card{
+    width: 250px;
+    padding: 20px;
+    margin: 100px auto;
+    border-radius: 12px;
+    text-align: center;
+    background: #f8f9fa;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid gray;
+}
+
+.profile-img{
+    width: 120px;
+    border-radius: 100%;
+}
+
+h2{
+    margin: 20px 0 5px 0;
+    color: #333;
+}
+
+h4 {
+  margin: 10px 0 20px 0;
+  color: #777;
+}
+
+p {
+  font-size: 14px;
+  color: #555;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #125ca1;
+}
