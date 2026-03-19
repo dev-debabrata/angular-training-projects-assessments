@@ -1,16 +1,16 @@
-.header {
+.counter-header {
   text-align: center;
   margin: 0;
 }
 
-.nav-bar {
+.counter-nav {
   background: #1976d2;
   color: white;
   margin: 0;
   padding: 16px;
 }
 
-.app-container {
+.counter-app-container {
   display: flex;
   justify-content: center;
   gap: 4rem;

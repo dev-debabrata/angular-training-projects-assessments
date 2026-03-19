@@ -1,9 +1,9 @@
-<div class="header">
-  <div class="nav-bar">
+<div class="counter-header">
+  <div class="counter-nav">
     <h1>Counter App</h1>
   </div>
 
-  <div class="app-container">
+  <div class="counter-app-container">
     <app-child [initialValue]="0" [label]="'Counter One'" (countChanged)="updateCounter1($event)" />
 
     <app-child [initialValue]="0" [label]="'Counter Two'" (countChanged)="updateCounter2($event)" />
