@@ -1,64 +1,39 @@
 @if (loading) {
-  <app-loader></app-loader>
+  <app-loader />
 }
 
 @if (error) {
-  <app-error></app-error>
+  <app-error />
 }
 
-@if (!loading && !error) {
-  <table class="user-table container">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Action</th>
-        <!-- 
-        <th>Website</th>
-        <th>City</th>
-        <th>Company</th> -->
-      </tr>
-    </thead>
-
-    <tbody>
-      @for (user of users$ | async; track user.id) {
-        <tr class="table-row">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.phone }}</td>
-          <td>
-            <button (click)="viewDetails(user.id)" class="view-button">View Details</button>
-          </td>
-          <!-- 
-          <td>{{ user.website }}</td>
-          <td>{{ user.address.city }}</td>
-          <td>{{ user.company.name }}</td> -->
+@if (users$ | async; as users) {
+  @if (!loading && !error) {
+    <table class="user-table container">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Action</th>
         </tr>
-      }
-    </tbody>
-  </table>
-}
+      </thead>
 
-<!-- @if (loading) {
-  <app-loader></app-loader>
+      <tbody>
+        @for (user of users; track user.id) {
+          <tr class="table-row">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>
+              <button (click)="viewDetails(user.id)" class="view-button">View Details</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
 }
-
-@if (error) {
-  <app-error></app-error>
-}
-
-@if (!loading && !error) {
-  <div class="grid">
-    @for (user of users$ | async; track user.id) {
-      <div class="card" [routerLink]="['/user', user.id]">
-        <h3>{{ user.name }}</h3>
-        <p>{{ user.email }}</p>
-      </div>
-    }
-  </div>
-} -->
