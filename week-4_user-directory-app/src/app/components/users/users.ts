@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { catchError, delay, of, tap } from 'rxjs';
 
 import { UserService } from '../../services/user.service';
 import { Loader } from '../loader/loader';
@@ -22,23 +21,40 @@ export class Users implements OnInit {
   loading = true;
   error = false;
 
-  users$ = of<User[]>([]);
+  users: User[] = [];
 
   ngOnInit(): void {
-    this.users$ = this.userService.getUsers().pipe(
-      delay(1000),
-      tap(() => {
-        this.loading = false;
-      }),
-      catchError(() => {
+    this.userService.getUsers().subscribe({
+      next: (res) => {
+        this.loading = true;
+        this.error = false;
+        console.log(res);
+      },
+      error: (err) => {
         this.error = true;
         this.loading = false;
-        return of([]);
-      }),
-    );
+        console.log(err);
+      },
+    });
   }
 
   viewDetails(id: number): void {
     this.router.navigate(['/user', id]);
   }
 }
+
+// users$ = of<User[]>([]);
+
+//  ngOnInit(): void {
+//     this.users$ = this.userService.getUsers().pipe(
+//       delay(1000),
+//       tap(() => {
+//         this.loading = false;
+//       }),
+//       catchError(() => {
+//         this.error = true;
+//         this.loading = false;
+//         return of([]);
+//       }),
+//     );
+//   }
