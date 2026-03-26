@@ -1,32 +1,32 @@
-@if (loading) {
+@if (loading()) {
   <app-loader />
 }
 
-@if (error) {
+@if (error()) {
   <app-error />
 }
 
-@if (users) {
+@if (users()) {
   <div class="card">
-    <h2>{{ users.name }}</h2>
-    <p><strong>Username:</strong> {{ users.username }}</p>
-    <p><strong>Email:</strong> {{ users.email }}</p>
-    <p><strong>Phone:</strong> {{ users.phone }}</p>
-    <p><strong>Website:</strong> {{ users.website }}</p>
+    <h2>{{ users()?.name }}</h2>
+    <p><strong>Username:</strong> {{ users()?.username }}</p>
+    <p><strong>Email:</strong> {{ users()?.email }}</p>
+    <p><strong>Phone:</strong> {{ users()?.phone }}</p>
+    <p><strong>Website:</strong> {{ users()?.website }}</p>
 
     <hr />
 
     <h3>Address</h3>
     <p>
-      {{ users.address.street }}, {{ users.address.suite }}<br />
-      {{ users.address.city }} - {{ users.address.zipcode }}
+      {{ users()?.address?.street }}, {{ users()?.address?.suite }}<br />
+      {{ users()?.address?.city }} - {{ users()?.address?.zipcode }}
     </p>
 
     <hr />
 
     <h3>Company</h3>
-    <p><strong>Name:</strong> {{ users.company.name }}</p>
-    <p><strong>Catchphrase:</strong> {{ users.company.catchPhrase }}</p>
-    <p><strong>Business:</strong> {{ users.company.bs }}</p>
+    <p><strong>Name:</strong> {{ users()?.company?.name }}</p>
+    <p><strong>Catchphrase:</strong> {{ users()?.company?.catchPhrase }}</p>
+    <p><strong>Business:</strong> {{ users()?.company?.bs }}</p>
   </div>
 }
