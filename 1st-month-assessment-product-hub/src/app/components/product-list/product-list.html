@@ -20,9 +20,14 @@
         </div>
         <h3>{{ product.title }}</h3>
 
-        <p>{{ product.description | truncate: 25 }}</p>
+        <p>{{ product.description | truncate: 80 }}</p>
 
-        <p><strong>Price:</strong> {{ product.price | currency: 'INR' }}</p>
+        <p class="price">
+          <strong>Price:</strong>
+          <span class="current-price">{{ product.price | currency: 'INR' }}</span>
+        </p>
+
+        <p class="discount"><strong>Discount:</strong> {{ product.discountPercentage }}%</p>
 
         <div class="status-section">
           <div class="stock-message">

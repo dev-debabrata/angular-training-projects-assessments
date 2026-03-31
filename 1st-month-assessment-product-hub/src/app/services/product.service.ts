@@ -7,7 +7,7 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private api = 'https://dummyjson.com/products?limits=20';
+  private api = 'https://dummyjson.com/products?limit=20';
   private http = inject(HttpClient);
   private _selected = new BehaviorSubject<Product | null>(null);
 
