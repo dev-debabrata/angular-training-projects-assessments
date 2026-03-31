@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
@@ -21,37 +21,37 @@ export class ProductList {
 
   searchTerm = '';
 
-  products: Product[] = [];
-  isLoading = true;
-  errorMsg = false;
+  products = signal<Product[]>([]);
+  isLoading = signal(true);
+  errorMsg = signal(false);
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe({
       next: (res: any) => {
         console.log(res);
-
-        this.isLoading = false;
-        this.products = res.products;
+        this.isLoading.set(false);
+        this.products.set(res.products);
       },
 
       error: (err) => {
-        this.errorMsg = true;
-        this.isLoading = false;
+        this.errorMsg.set(true);
+        this.isLoading.set(false);
         console.log(err);
       },
     });
   }
 
-  get filteredProducts(): Product[] {
+  get filteredProducts() {
     const search = this.searchTerm.toLowerCase();
-    return this.products?.filter((product) => product.title.toLowerCase().includes(search)) || [];
+    return this.products().filter((product) => product.title.toLowerCase().includes(search));
   }
-  // get filteredProducts() {
-  //   const search = this.searchTerm.toLowerCase();
-  //   return this.products.filter((product) => product.title.toLowerCase().includes(search));
-  // }
 
   viewDetails(id: number): void {
     this.router.navigate(['/product', id]);
   }
 }
+
+// get filteredProducts(): Product[] {
+//   const search = this.searchTerm.toLowerCase();
+//   return this.products().filter((product) => product.title.toLowerCase().includes(search)) || [];
+// }
