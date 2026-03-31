@@ -1,0 +1,11 @@
+.header {
+  background: #212529;
+  color: white;
+  margin: 0;
+}
+
+h2 {
+  max-width: 80%;
+  margin: auto;
+  padding: 14px;
+}
