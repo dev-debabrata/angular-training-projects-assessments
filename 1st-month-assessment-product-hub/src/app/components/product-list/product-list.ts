@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TruncatePipe } from '../../pipes/truncate-pipe';
 import { Highlight } from '../../directives/highlight';
+import { Rating } from '../../utils/rating.util';
 
 @Component({
   selector: 'app-product-list',
@@ -26,12 +27,16 @@ export class ProductList {
   isLoading = signal(true);
   errorMsg = signal(false);
 
+  selectedCategory: string = 'All';
+  categories: string[] = [];
+
   ngOnInit(): void {
     this.productService.getProducts().subscribe({
       next: (res: any) => {
         console.log(res);
         this.isLoading.set(false);
         this.products.set(res.products);
+        this.categories = ['All', ...new Set(this.products().map((p) => p.category))];
       },
 
       error: (err) => {
@@ -41,14 +46,26 @@ export class ProductList {
       },
     });
   }
-
   get filteredProducts() {
     const search = this.searchTerm.toLowerCase();
-    return this.products().filter((product) => product.title.toLowerCase().includes(search));
+    return this.products().filter((product) => {
+      const matchesSearch = product.title.toLowerCase().includes(search);
+      const matchesCategory =
+        this.selectedCategory === 'All' || product.category === this.selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
   }
+  // get filteredProducts() {
+  //   const search = this.searchTerm.toLowerCase();
+  //   return this.products().filter((product) => product.title.toLowerCase().includes(search));
+  // }
 
   viewDetails(id: number): void {
     this.router.navigate(['/product', id]);
+  }
+
+  get ratingUtil() {
+    return Rating;
   }
 }
 

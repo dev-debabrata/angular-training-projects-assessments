@@ -7,15 +7,27 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private api = 'https://dummyjson.com/products?limit=20';
+  private api = 'https://dummyjson.com/products';
   private http = inject(HttpClient);
   private _selected = new BehaviorSubject<Product | null>(null);
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.api);
+  getProducts(): Observable<any> {
+    return this.http.get(`${this.api}?limit=30`);
   }
 
-  getProductsById(id: number): Observable<Product> {
+  getProductById(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.api}/${id}`);
   }
+
+  // private api = 'https://dummyjson.com/products?limit=20';
+  // private http = inject(HttpClient);
+  // private _selected = new BehaviorSubject<Product | null>(null);
+
+  // getProducts(): Observable<Product[]> {
+  //   return this.http.get<Product[]>(this.api);
+  // }
+
+  // getProductsById(id: number): Observable<Product> {
+  //   return this.http.get<Product>(`${this.api}/${id}`);
+  // }
 }
