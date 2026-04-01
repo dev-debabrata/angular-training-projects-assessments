@@ -69,8 +69,6 @@
       <div class="meta-info">
         <p><strong>Created At:</strong> {{ product.meta.createdAt | timeAgo }}</p>
         <p><strong>Updated At:</strong> {{ product.meta.updatedAt | timeAgo }}</p>
-        <!-- <p><strong>Created At:</strong> {{ product.meta.createdAt | date: 'medium' }}</p>
-        <p><strong>Updated At:</strong> {{ product.meta.updatedAt | date: 'medium' }}</p> -->
         <p><strong>Barcode:</strong> {{ product.meta.barcode }}</p>
         <p><strong>QR Code:</strong> <a [href]="product.meta.qrCode" target="_blank">View QR</a></p>
       </div>
@@ -132,39 +130,3 @@
 } @else {
   <p>No Data!</p>
 }
-
-<!-- @if (isLoading) {
-  <app-loader />
-} @else if (errorMsg) {
-  <app-error />
-} @else if (product) {
-  <div class="card">
-    <div class="img-container">
-      <img [src]="product.images" [alt]="product.title" class="product-img" />
-    </div>
-    <h2>{{ product.title }}</h2>
-    <p><strong>Rating:</strong> {{ product.rating }}</p>
-    <p><strong>Category:</strong> {{ product.category }}</p>
-    <p><strong>Price:</strong> {{ product.price }}</p>
-    <p><strong>Stock:</strong> {{ product.stock }}</p>
-    <p><strong>Description:</strong> {{ product.description }}</p>
-  </div>
-} @else {
-  <p>No Data!</p>
-} -->
-<!-- @if (errorMSG) {
-  <app-error />
-} -->
-<!-- @if (product) {
-  <div class="card">
-    <div class="img-container">
-      <img [src]="product.images" [alt]="product.title" class="product-img" />
-    </div>
-    <h2>{{ product.title }}</h2>
-    <p><strong>Rating:</strong> {{ product.rating }}</p>
-    <p><strong>Category:</strong> {{ product.category }}</p>
-    <p><strong>Price:</strong> {{ product.price }}</p>
-    <p><strong>Stock:</strong> {{ product.stock }}</p>
-    <p><strong>Description:</strong> {{ product.description }}</p>
-  </div>
-} -->
