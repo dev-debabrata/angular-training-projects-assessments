@@ -7,6 +7,7 @@
     <input type="text" placeholder="Search product..." [(ngModel)]="searchTerm" />
   </div>
 
+  <!-- Category filter-->
   <div class="category-list">
     @for (cat of categories; track $index) {
       <div
@@ -27,6 +28,7 @@
     </select>
   </div> -->
 
+  <!-- Products section -->
   <div class="product-list">
     @for (product of filteredProducts; track product.id) {
       <div
