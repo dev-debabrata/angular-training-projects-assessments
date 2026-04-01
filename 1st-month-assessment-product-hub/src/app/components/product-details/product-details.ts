@@ -20,6 +20,9 @@ export class ProductDetails {
   private productService = inject(ProductService);
 
   product: Product | null = null;
+  // isLoading = true;
+  // errorMsg = false;
+
   isLoading = signal(true);
   errorMsg = signal(false);
 
@@ -32,12 +35,15 @@ export class ProductDetails {
 
     this.productService.getProductById(productId).subscribe({
       next: (res) => {
-        this.isLoading.set(false);
         this.product = res;
-        console.log(res);
         this.stars = Rating.getStars(this.product.rating);
+        // this.isLoading = false;
+        this.isLoading.set(false);
+        console.log(res);
       },
       error: (err) => {
+        // this.errorMsg = true;
+        // this.isLoading = false;
         this.errorMsg.set(true);
         this.isLoading.set(false);
         console.error(err);
