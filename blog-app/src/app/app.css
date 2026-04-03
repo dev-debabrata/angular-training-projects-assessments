@@ -1,0 +1,14 @@
+.page-container {
+  max-width: 80%;
+  margin: auto;
+  background: #d5d1e0df;
+  /* padding: 0 20px; */
+  /* box-sizing: border-box; */
+  /* max-width: 1200px;
+  margin: 0 auto; */
+}
+
+.breadcrumb {
+  max-width: 80%;
+  margin: auto;
+}
