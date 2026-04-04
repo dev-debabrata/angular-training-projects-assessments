@@ -4,9 +4,23 @@ import { PostList } from './pages/posts/post-list/post-list';
 import { About } from './pages/about/about';
 import { authGuard } from './guards/auth-guard';
 import { NotFound } from './components/not-found/not-found';
+import { LoginPage } from './pages/auth/login-page/login-page';
+import { SignupPage } from './pages/auth/signup-page/signup-page';
 
 export const routes: Routes = [
   { path: '', component: Home },
+
+  {
+    path: 'login',
+    component: LoginPage,
+    data: { hideLayout: true },
+  },
+
+  {
+    path: 'signup',
+    component: SignupPage,
+    data: { hideLayout: true },
+  },
   { path: 'posts', component: PostList, data: { breadcrumb: 'Posts' } },
   {
     path: 'posts/:id',

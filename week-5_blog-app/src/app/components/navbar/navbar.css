@@ -1,0 +1,112 @@
+/* Header wrapper */
+.header {
+  background-color: #000;
+  color: #ccc;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-container {
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  border-bottom: 1px solid #343a40;
+  padding-bottom: 15px;
+}
+
+/* App title */
+.header h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Navbar links */
+.navbar-item {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding-top: 2rem;
+  max-width: 80%;
+  margin: auto;
+}
+
+.navbar-item a {
+  color: #f1f3f5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.navbar-item a:hover {
+  color: #fff;
+}
+
+/* Active link highlight */
+.navbar-item a.active {
+  color: #00d8ff; /* Bright highlight color */
+  border-bottom: 2px solid #00d8ff;
+}
+
+/* Login section */
+.login-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-section span {
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  padding: 5px 12px;
+  background-color: #00d8ff;
+  border: none;
+  color: #1e1e2f;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #00b0cc;
+}
+
+.social-icons {
+  /* margin-left: auto; */
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  /* color: #333; */
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Brand colors on hover */
+.social-icons a:nth-child(1):hover {
+  color: #1877f2;
+} /* Facebook */
+.social-icons a:nth-child(2):hover {
+  color: #e4405f;
+} /* Instagram */
+.social-icons a:nth-child(3):hover {
+  color: #000;
+} /* Twitter/X */
+.social-icons a:nth-child(4):hover {
+  color: #0077b5;
+} /* LinkedIn */

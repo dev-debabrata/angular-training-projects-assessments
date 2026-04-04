@@ -1,4 +1,21 @@
-<header>
+@if (!hideLayout) {
+  <header>
+    <app-navbar />
+    <div class="breadcrumb">
+      <app-breadcrumb />
+    </div>
+  </header>
+}
+
+<main class="page-container">
+  <router-outlet />
+</main>
+
+@if (!hideLayout) {
+  <app-footer />
+}
+
+<!-- <header>
   <app-navbar />
   <div class="breadcrumb">
     <app-breadcrumb />
@@ -9,4 +26,4 @@
   <router-outlet />
 </main>
 
-<app-footer />
+<app-footer /> -->

@@ -1,1 +1,41 @@
-<p>navbar works!</p>
+<nav class="header">
+  <div class="navbar-container">
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+      <a href="https://linkedin.com" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <h2>CodeBreeze</h2>
+
+    <div class="login-section">
+      @if (!isLoggedIn) {
+        <!-- <button (click)="showLogin = true">Login</button> -->
+        <a [routerLink]="isLoggedIn ? '/write' : '/login'" routerLinkActive="active" class="btn"
+          >Login</a
+        >
+      } @else {
+        <!-- <span>Welcome, User!</span> -->
+        <button (click)="logout()">Logout</button>
+      }
+    </div>
+  </div>
+
+  <div class="navbar-item">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/posts" routerLinkActive="active">Posts</a>
+
+    <a routerLink="/write" routerLinkActive="active">Write</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  </div>
+</nav>
