@@ -19,19 +19,39 @@ export class App {
   hideLayout = false;
 
   constructor() {
-    this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        map(() => {
-          let current = this.route.firstChild;
-          while (current?.firstChild) {
-            current = current.firstChild;
-          }
-          return current?.snapshot.data['hideLayout'] ?? false;
-        }),
-      )
-      .subscribe((value) => {
-        this.hideLayout = value;
-      });
+    if (performance.navigation.type === 1) {
+      this.router.navigate(['/']);
+    }
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        let current = this.route.firstChild;
+
+        while (current?.firstChild) {
+          current = current.firstChild;
+        }
+
+        this.hideLayout = current?.snapshot.data['hideLayout'] ?? false;
+      }
+    });
+
+    // if (window.performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+    //   this.router.navigate(['/']);
+    // }
+
+    // this.router.events
+    //   .pipe(
+    //     filter((event) => event instanceof NavigationEnd),
+    //     map(() => {
+    //       let current = this.route.firstChild;
+    //       while (current?.firstChild) {
+    //         current = current.firstChild;
+    //       }
+    //       return current?.snapshot.data['hideLayout'] ?? false;
+    //     }),
+    //   )
+    //   .subscribe((value) => {
+    //     this.hideLayout = value;
+    //   });
   }
 }

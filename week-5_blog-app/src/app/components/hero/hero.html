@@ -1,1 +1,23 @@
-<p>hero works!</p>
+<section class="hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Welcome to CodeBreeze</h1>
+    <h2>Write. Share. Inspire. ✨</h2>
+    <p>
+      Dive into the world of coding with CodeBreeze — your ultimate companion for mastering web
+      development, exploring programming languages, and building real-world projects. Whether you're
+      a beginner learning your first lines of code or an experienced developer seeking to sharpen
+      your skills, CodeBreeze offers tutorials, guides, and hands-on exercises to help you code
+      smarter, faster, and with confidence.
+    </p>
+
+    <div class="hero-buttons">
+      <a routerLink="/posts" class="btn primary">Explore Posts</a>
+      <a [routerLink]="isLoggedIn ? '/write' : '/login'" class="btn secondary">Start Writing</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!-- <img src="hero-img.png" alt="Blog" /> -->
+  </div>
+</section>

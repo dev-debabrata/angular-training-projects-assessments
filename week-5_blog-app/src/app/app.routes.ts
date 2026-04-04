@@ -6,6 +6,7 @@ import { authGuard } from './guards/auth-guard';
 import { NotFound } from './components/not-found/not-found';
 import { LoginPage } from './pages/auth/login-page/login-page';
 import { SignupPage } from './pages/auth/signup-page/signup-page';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -34,5 +35,6 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { breadcrumb: 'Write' },
   },
+  { path: 'contact', component: Contact, data: { breadcrumb: 'Contact' } },
   { path: '**', component: NotFound },
 ];
