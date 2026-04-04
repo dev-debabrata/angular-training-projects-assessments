@@ -1,10 +1,30 @@
-.home-container {
-  min-height: 100vh;
-  margin: 0;
-  padding: 2rem;
-  /* background: #212529; */
+.features .home {
+  max-width: 80%;
+  margin: auto;
+  /* background: #f1f3f5; */
 }
 
-p {
-  margin: 0;
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 50px 0;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 240px;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.home-posts {
+  padding: 40px 20px;
+}
+
+.home-posts h2 {
+  text-align: center;
+  margin-bottom: 30px;
 }
