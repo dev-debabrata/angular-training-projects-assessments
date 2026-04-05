@@ -18,13 +18,14 @@
   padding-bottom: 15px;
 }
 
-.header h2 {
+.nav-name {
   margin: 0;
   font-size: 40px;
   font-weight: bold;
   color: white;
   margin-right: 3rem;
   padding-right: 6px;
+  text-decoration: none;
 }
 
 .navbar-item {

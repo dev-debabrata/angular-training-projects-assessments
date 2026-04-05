@@ -35,6 +35,33 @@ export class App {
       }
     });
 
+    ////////////////////////////
+
+    // const nav = window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+
+    // if (nav?.type === 'reload') {
+    //   this.router.navigateByUrl('/');
+    // }
+
+    // this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     window.scrollTo({
+    //       top: 0,
+    //       behavior: 'instant',
+    //     });
+
+    //     let current = this.route.firstChild;
+
+    //     while (current?.firstChild) {
+    //       current = current.firstChild;
+    //     }
+
+    //     this.hideLayout = current?.snapshot.data['hideLayout'] ?? false;
+    //   }
+    // });
+
+    ////////////////////////////////
+
     // if (window.performance.getEntriesByType('navigation')[0]?.type === 'reload') {
     //   this.router.navigate(['/']);
     // }

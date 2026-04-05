@@ -9,7 +9,8 @@ export const authGuard: CanActivateFn = (route, state) => {
   if (isLoggedIn) {
     return true;
   } else {
-    alert('Please login first!');
+    alert('Authentication required to access the Editor.');
+    // alert('Please login first!');
     router.navigate(['/login']);
     return false;
   }
