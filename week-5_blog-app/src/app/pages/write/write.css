@@ -1,6 +1,102 @@
 .write {
   max-width: 80%;
   margin: auto;
-  height: 100vh;
-  /* background: #f1f3f5; */
+  min-height: 80vh;
+  background: #f9fafb;
+  padding: 2rem 0;
+}
+.write-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.write-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Form elements */
+.write-container form div {
+  margin-bottom: 20px;
+}
+
+.write-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+.write-container input[type='text'],
+.write-container input[type='number'],
+.write-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.write-container input:focus,
+.write-container textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Button styling */
+.write-container button {
+  padding: 10px 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.write-container button:hover {
+  background-color: #0056b3;
+}
+
+.write-container button[disabled] {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Tags styling */
+.tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e0f0ff;
+  color: #007bff;
+  padding: 4px 10px;
+  margin: 4px 4px 0 0;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.tag button {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tag button:hover {
+  color: #ff4d4f;
 }

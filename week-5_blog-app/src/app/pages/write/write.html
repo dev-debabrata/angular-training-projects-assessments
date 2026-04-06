@@ -1,3 +1,37 @@
-<div class="write">
-  <p>write works!</p>
-</div>
+<section class="write">
+  <div class="write-container">
+    <h2>Create a New Post</h2>
+    <form (ngSubmit)="submitPost()" #postForm="ngForm">
+      <div>
+        <label>Title</label>
+        <input type="text" name="title" [(ngModel)]="post.title" required />
+      </div>
+
+      <div>
+        <label>Body</label>
+        <textarea name="body" [(ngModel)]="post.body" rows="8" required></textarea>
+      </div>
+
+      <div>
+        <label>Tags</label>
+        <input type="text" [(ngModel)]="tagInput" name="tagInput" placeholder="Add tag" />
+        <button type="button" (click)="addTag()">Add</button>
+        <div class="tags">
+          @for (tag of post.tags; track tag) {
+            <span class="tag">
+              #{{ tag }}
+              <button type="button" (click)="removeTag(tag)">x</button>
+            </span>
+          }
+        </div>
+      </div>
+
+      <div>
+        <label>User ID</label>
+        <input type="number" name="userId" [(ngModel)]="post.userId" required />
+      </div>
+
+      <button type="submit" [disabled]="postForm.invalid">Publish</button>
+    </form>
+  </div>
+</section>
