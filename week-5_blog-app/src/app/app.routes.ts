@@ -23,11 +23,28 @@ export const routes: Routes = [
     data: { hideLayout: true },
   },
   { path: 'posts', component: PostList, data: { breadcrumb: 'Posts' } },
+
   {
-    path: 'posts/:id',
-    loadComponent: () => import('./pages/posts/post-detail/post-detail').then((m) => m.PostDetail),
-    data: { breadcrumb: 'Post Details' },
+    path: 'posts',
+    data: { breadcrumb: 'Posts' },
+    children: [
+      {
+        path: '',
+        component: PostList,
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/posts/post-detail/post-detail').then((m) => m.PostDetail),
+        data: { breadcrumb: 'Post Details' },
+      },
+    ],
   },
+  // {
+  //   path: 'posts/:id',
+  //   loadComponent: () => import('./pages/posts/post-detail/post-detail').then((m) => m.PostDetail),
+  //   data: { breadcrumb: 'Post Details' },
+  // },
   { path: 'about', component: About, data: { breadcrumb: 'About' } },
   {
     path: 'write',
@@ -36,5 +53,5 @@ export const routes: Routes = [
     data: { breadcrumb: 'Write' },
   },
   { path: 'contact', component: Contact, data: { breadcrumb: 'Contact' } },
-  { path: '**', component: NotFound },
+  { path: '**', component: NotFound, data: { hideLayout: true, hideBreadcrumb: true } },
 ];

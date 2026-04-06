@@ -9,18 +9,28 @@ import { Post } from '../models/post-model';
 export class PostService {
   private api = 'https://dummyjson.com/posts';
   private http = inject(HttpClient);
-  private _selected = new BehaviorSubject<Post | null>(null);
 
-  // getPosts(): Observable<Post[]> {
-  //   return this.http.get<{ posts: Post[] }>(this.api).pipe(map((res) => res.posts));
-  // }
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.api);
+  getPosts(): Observable<{ posts: Post[] }> {
+    return this.http.get<{ posts: Post[] }>(this.api);
   }
 
   getPostById(id: number): Observable<Post> {
     return this.http.get<Post>(`${this.api}/${id}`);
   }
+  // private api = 'https://dummyjson.com/posts';
+  // private http = inject(HttpClient);
+  // private _selected = new BehaviorSubject<Post | null>(null);
+
+  // getPosts(): Observable<Post[]> {
+  //   return this.http.get<{ posts: Post[] }>(this.api).pipe(map((res) => res.posts));
+  // }
+  // getPosts(): Observable<Post[]> {
+  //   return this.http.get<Post[]>(this.api);
+  // }
+
+  // getPostById(id: number): Observable<Post> {
+  //   return this.http.get<Post>(`${this.api}/${id}`);
+  // }
 }
 
 // https://dummyjson.com/posts

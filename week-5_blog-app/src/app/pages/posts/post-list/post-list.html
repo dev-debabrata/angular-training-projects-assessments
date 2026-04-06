@@ -1,3 +1,37 @@
-<div class="posts">
-  <p>post-list works!</p>
-</div>
+@if (isLoading()) {
+  <app-loader />
+} @else if (errorMsg()) {
+  <app-error />
+} @else {
+  <div class="post-container">
+    <!-- <h1 class="page-title">Latest Posts</h1> -->
+
+    <div class="post-grid">
+      @for (post of posts; track post.id) {
+        <div class="post-card">
+          <!-- Tags -->
+          <div class="tags">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">#{{ tag }}</span>
+            }
+          </div>
+
+          <!-- Title -->
+          <h2 class="post-title">{{ post.title }}</h2>
+
+          <!-- Body -->
+          <p class="post-description">{{ post.body | slice: 0 : 140 }}...</p>
+
+          <!-- Footer -->
+          <div class="post-footer">
+            <div class="stats">
+              ❤️ {{ post.reactions.likes }} 👎 {{ post.reactions.dislikes }} 👁️ {{ post.views }}
+            </div>
+
+            <button (click)="viewPostDetails(post.id)" class="read-more">Read →</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+}

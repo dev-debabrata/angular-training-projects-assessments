@@ -17,6 +17,7 @@ export class App {
   route = inject(ActivatedRoute);
 
   hideLayout = false;
+  hideBreadcrumb = false;
 
   constructor() {
     if (performance.navigation.type === 1) {
@@ -32,6 +33,7 @@ export class App {
         }
 
         this.hideLayout = current?.snapshot.data['hideLayout'] ?? false;
+        this.hideBreadcrumb = current?.snapshot.data['hideBreadcrumb'] ?? false;
       }
     });
 
