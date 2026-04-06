@@ -20,9 +20,9 @@ export class App {
   hideBreadcrumb = false;
 
   constructor() {
-    if (performance.navigation.type === 1) {
-      this.router.navigate(['/']);
-    }
+    // if (performance.navigation.type === 1) {
+    //   this.router.navigate(['/']);
+    // }
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

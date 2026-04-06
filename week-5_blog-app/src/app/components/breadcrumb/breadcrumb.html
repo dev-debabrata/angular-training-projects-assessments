@@ -14,6 +14,25 @@
   </div>
 }
 
+<!-- @if (breadcrumbs.length > 0) {
+  <div class="breadcrumb-container" aria-label="breadcrumb">
+    @for (crumb of breadcrumbs; track crumb.label + crumb.url; let last = $last) {
+      @if (!last) {
+        <a [routerLink]="crumb.url" class="breadcrumb-link">
+          {{ crumb.label }}
+        </a>
+        <span class="breadcrumb-separator"> / </span>
+      }
+
+      @if (last) {
+        <span class="breadcrumb-current">
+          {{ crumb.label }}
+        </span>
+      }
+    }
+  </div>
+} -->
+
 <!-- <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
     <a *ngIf="!last" [routerLink]="crumb.url" class="breadcrumb-link">{{ crumb.label }}</a>
     <span *ngIf="last" class="breadcrumb-current">{{ crumb.label }}</span>
